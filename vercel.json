@@ -1,10 +1,15 @@
 {
   "version": 2,
-  "functions": {
-    "api/*.py": {
-      "memory": 1024,
-      "maxDuration": 30,
-      "excludeFiles": ".venv/**,.git/**,tests/**,docs/**"
+  "builds": [
+    {
+      "src": "main.py",
+      "use": "@vercel/python"
     }
-  }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "main.py"
+    }
+  ]
 }
